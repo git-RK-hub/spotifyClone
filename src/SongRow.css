@@ -1,0 +1,68 @@
+.songrow {
+  margin: 20px;
+  padding: 10px;
+  width: 98%;
+  height: 250px;
+}
+
+.songrow__row {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.songrow__row::-webkit-scrollbar {
+  overflow: hidden;
+}
+
+.songrow__tile {
+  height: 200px;
+  margin: 10px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 200px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.songrow__tile::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(transparent, black);
+}
+
+.songrow__tile:hover {
+  transform: scale(1.1);
+}
+
+.songrow__tile > img {
+  object-fit: contain;
+  width: 200px;
+  height: 200px;
+}
+
+.songrow__tile > h4 {
+  color: white;
+  position: absolute;
+  bottom: 15px;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px black;
+  width: 94%;
+  padding-left: 10px;
+}
+
+.songrow__tile > p {
+  color: white;
+  position: absolute;
+  bottom: 0px;
+  font-size: 13px;
+  width: 94%;
+  padding-left: 10px;
+  text-overflow: clip;
+}

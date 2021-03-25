@@ -1,0 +1,22 @@
+.playlist__row {
+  color: grey;
+  font-weight: bold;
+  font-size: 15px;
+  transition: 200ms color ease-in;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.playlist__row:hover {
+  color: white;
+}
+.playlist_row_song {
+  color: grey;
+  margin-left: 17px;
+  transition: 200ms color ease-in;
+  cursor: pointer;
+}
+
+.playlist_row_song:hover {
+  color: white;
+}

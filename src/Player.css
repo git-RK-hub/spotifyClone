@@ -1,0 +1,4 @@
+.player__page {
+  display: flex;
+  position: relative;
+}

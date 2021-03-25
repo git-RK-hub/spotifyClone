@@ -1,0 +1,11 @@
+.body {
+  flex: 0.8;
+  height: 100vh;
+  background: linear-gradient(black, grey);
+  color: white;
+  overflow-y: scroll;
+}
+
+.body::-webkit-scrollbar {
+  overflow: hidden;
+}

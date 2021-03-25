@@ -1,0 +1,37 @@
+.sidebar {
+  flex: 0.2;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  min-width: 230px;
+  overflow-y: scroll;
+}
+
+.sidebar::-webkit-scrollbar {
+  overflow: hidden;
+}
+
+.sidebar > hr {
+  border: 0px;
+  box-shadow: 0px 1px 1px 1px grey;
+}
+
+.sidebar__title {
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.sidebar__logo {
+  margin: 20px 0px 0px 20px;
+  object-fit: contain;
+  height: 70px;
+  padding: 10px;
+}
+
+.sidebar__playlist {
+  height: fit-content;
+  padding-bottom: 150px;
+}
