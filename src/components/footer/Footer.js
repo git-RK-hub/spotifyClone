@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as actions from "./store/actions";
+import * as actions from "../../store/actions";
 import PlayCircleFilledWhiteIcon from "@material-ui/icons/PlayCircleFilledWhite";
 import PauseCircleFilledIcon from "@material-ui/icons/PauseCircleFilled";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
@@ -10,7 +10,26 @@ import ShuffleIcon from "@material-ui/icons/Shuffle";
 import RepeatIcon from "@material-ui/icons/Repeat";
 import VolumeDownIcon from "@material-ui/icons/VolumeDown";
 import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 import "./Footer.css";
+
+const muiTheme = createMuiTheme({
+  overrides: {
+    Slider: {
+      thumb: {
+        color: "yellow",
+      },
+      track: {
+        color: "red",
+      },
+      rail: {
+        color: "black",
+      },
+    },
+  },
+});
+
 class Footer extends React.Component {
   audioRef = React.createRef();
 
@@ -77,7 +96,9 @@ class Footer extends React.Component {
                 <VolumeDownIcon />
               </Grid>
               <Grid item xs>
-                <Slider aria-labelledby="continuous-slider" />
+                <ThemeProvider muiTheme={muiTheme}>
+                  <Slider aria-labelledby="continuous-slider" />
+                </ThemeProvider>
               </Grid>
             </Grid>
           </div>

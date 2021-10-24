@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as actions from "./store/actions";
+import * as actions from "../../../store/actions";
 import "./Playlistrow.css";
 class PlaylistRow extends Component {
   state = {
@@ -8,15 +8,10 @@ class PlaylistRow extends Component {
     showPlaylist: false,
   };
 
-  onTogglePlaylist = (id) => {
+  componentDidMount() {
     let _playlistSong = [];
-    if (this.state.playListSong.length > 0) {
-      this.setState({ playListSong: [] });
-    }
-    this.setState({ showPlayList: !this.state.showPlaylist });
-
     this.props.spotify
-      .getPlaylist(id)
+      .getPlaylist(this.props.id)
       .then((res) => {
         _playlistSong = res.body.tracks.items.map((el) => {
           const t = {
@@ -29,44 +24,42 @@ class PlaylistRow extends Component {
           return t;
         });
         this.setState({ playListSong: _playlistSong });
-        this.setState({ showPlayList: !this.state.showPlaylist });
       })
       .catch((err) => console.log(err));
+  }
+
+  onTogglePlaylist = () => {
+    this.setState({ showPlaylist: !this.state.showPlaylist });
   };
 
   render() {
-    let list = null;
+    let list = this.state.playListSong?.map((el) => {
+      return (
+        <p
+          key={el.trackId}
+          className="playlist_row_song"
+          onClick={() =>
+            this.props.onSetSong({
+              audiotag: this.props.audiotag,
+              spotify: this.props.spotify,
+              playing: this.props.playing,
+              songUrl: el.trackUri,
+              trackName: el.trackName,
+              trackImg: el.trackImg,
+            })
+          }
+        >
+          {el.trackName}
+        </p>
+      );
+    });
 
-    if (this.state.showPlayList) {
-      list = this.state.playListSong.map((el) => {
-        return (
-          <p
-            key={el.trackId}
-            className="playlist_row_song"
-            onClick={() =>
-              this.props.onSetSong({
-                audiotag: this.props.audiotag,
-                spotify: this.props.spotify,
-                playing: this.props.playing,
-                songUrl: el.trackUri,
-                trackName: el.trackName,
-                trackImg: el.trackImg,
-              })
-            }
-          >
-            {el.trackName}
-          </p>
-        );
-      });
-    }
     return (
       <React.Fragment>
         <div className="playlist__row">
-          <p onClick={() => this.onTogglePlaylist(this.props.id)}>
-            {this.props.name}
-          </p>
+          <p onClick={() => this.onTogglePlaylist()}>{this.props.name}</p>
         </div>
-        {list}
+        {this.state.showPlaylist && list}
       </React.Fragment>
     );
   }

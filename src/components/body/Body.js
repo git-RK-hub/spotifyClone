@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Header from "./Header";
-import SearchSong from "./SearchSong";
-import SongRow from "./SongRow";
+import Header from "../header/Header";
+import SearchSong from "../search_song/SearchSong";
+import SongRow from "../song_row/SongRow";
 import "./Body.css";
 class Body extends Component {
   state = {

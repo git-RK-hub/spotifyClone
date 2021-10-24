@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import * as actions from "./store/actions";
+import * as actions from "../../store/actions";
 const searchSong = (props) => {
   const songs = props.queryTracks.map((el) => {
     return (

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Body from "./Body";
-import Footer from "./Footer";
-import Sidebar from "./Sidebar";
+import Body from "../../components/body/Body";
+import Footer from "../../components/footer/Footer";
+import Sidebar from "../../components/sidebar/Sidebar";
 
 import "./Player.css";
 class Player extends Component {

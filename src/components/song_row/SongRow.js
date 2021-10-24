@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as actions from "./store/actions";
+import * as actions from "../../store/actions";
 
 import "./SongRow.css";
 class SongRow extends Component {

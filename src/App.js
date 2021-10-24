@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "./store/actions";
-import Player from "./Player";
+import Player from "./container/player/Player";
+import Login from "./container/login/Login";
 import "./App.css";
-import Login from "./Login";
 
 class App extends Component {
   componentWillMount() {

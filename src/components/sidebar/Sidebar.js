@@ -1,12 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import Sidebaroption from "./Sidebaroption";
-import PlaylistRow from "./PlaylistRow";
+import Sidebaroption from "./sidebar_options/Sidebaroption";
+import PlaylistRow from "./playlist/PlaylistRow";
 import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
 import LibraryMusicOutlinedIcon from "@material-ui/icons/LibraryMusicOutlined";
 import "./Sidebar.css";
-import * as actions from "./store/actions";
+import * as actions from "../../store/actions";
 class Sidebar extends React.Component {
   componentDidMount() {
     this.props.getUserPlaylists(this.props.spotify);
